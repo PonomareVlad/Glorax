@@ -1,0 +1,545 @@
+{
+  "parameters": {
+    "renderRules": {
+      "_root": {
+        "showDepth": 1
+      },
+      "department": {
+        "showDepth": 1
+      },
+      "division": {
+        "showDepth": 1
+      }
+    }
+  },
+  "structure": [
+    {
+      "type": "profile",
+      "role": "head",
+      "roleTitle": "Управляющий партнер",
+      "name": "Владислав Пономарев",
+      "birthday": "10 августа 2000г.",
+      "phoneWork": "+7 (977) 655-65-65 доб. 3465",
+      "phone": "+7 (977) 655-65-65",
+      "email": "lebedeva@glor",
+      "image": "https://ponomarevlad.ru/assets/img/pic.jpeg",
+      "partners": [
+        {
+          "type": "profile",
+          "role": "assistant",
+          "roleTitle": "Ассистент управляющего партнера",
+          "name": "Владислав Пономарев"
+        }
+      ],
+      "submissive": [
+        {
+          "type": "department",
+          "name": "Департамент 2",
+          "submissive": [
+            {
+              "type": "profile",
+              "role": "headOfDepartment",
+              "roleTitle": "Руководитель департамента 1",
+              "name": "Владислав Пономарев",
+              "assistants": [
+                {
+                  "type": "profile",
+                  "role": "assistant",
+                  "roleTitle": "Подчиненный Ассистент руководителя департамента 1",
+                  "name": "Владислав Пономарев"
+                }
+              ],
+              "submissive": [
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1",
+                  "submissive": [
+                    {
+                      "type": "profile",
+                      "role": "position",
+                      "roleTitle": "Должность 1-1-1",
+                      "name": "Владислав Пономарев",
+                      "birthday": "10 августа 2000г.",
+                      "phoneWork": "+7 (977) 655-65-65 доб. 3465",
+                      "phone": "+7 (977) 655-65-65",
+                      "email": "lebedeva@glor",
+                      "image": "https://ponomarevlad.ru/assets/img/pic.jpeg"
+                    },
+                    {
+                      "type": "profile",
+                      "role": "position",
+                      "roleTitle": "Должность 1-1-2",
+                      "name": "Владислав Пономарев"
+                    },
+                    {
+                      "type": "profile",
+                      "role": "position",
+                      "roleTitle": "Должность 1-1-3",
+                      "name": "Владислав Пономарев"
+                    }
+                  ]
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                }
+              ]
+            },
+            {
+              "type": "profile",
+              "role": "headOfDepartment",
+              "roleTitle": "Руководитель департамента 1",
+              "name": "Владислав Пономарев",
+              "birthday": "10 августа 2000г.",
+              "phoneWork": "+7 (977) 655-65-65 доб. 3465",
+              "phone": "+7 (977) 655-65-65",
+              "email": "lebedeva@glor",
+              "image": "https://ponomarevlad.ru/assets/img/pic.jpeg",
+              "assistants": [
+                {
+                  "type": "profile",
+                  "role": "assistant",
+                  "roleTitle": "Подчиненный Ассистент руководителя департамента 1",
+                  "name": "Владислав Пономарев",
+                  "birthday": "10 августа 2000г.",
+                  "phoneWork": "+7 (977) 655-65-65 доб. 3465",
+                  "phone": "+7 (977) 655-65-65",
+                  "email": "lebedeva@glor",
+                  "image": "https://ponomarevlad.ru/assets/img/pic.jpeg"
+                }
+              ],
+              "submissive": [
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1",
+                  "submissive": [
+                    {
+                      "type": "profile",
+                      "role": "headOfDivision",
+                      "roleTitle": "Руководитель отделения 1",
+                      "name": "Владислав Пономарев",
+                      "partners": [
+                        {
+                          "type": "profile",
+                          "role": "assistant",
+                          "roleTitle": "Ассистент руководителя отделения 1",
+                          "name": "Владислав Пономарев"
+                        }
+                      ],
+                      "submissive": [
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-1",
+                          "name": "Владислав Пономарев"
+                        },
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-2",
+                          "name": "Владислав Пономарев"
+                        },
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-3",
+                          "name": "Владислав Пономарев"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "department",
+          "name": "Департамент 1",
+          "submissive": [
+            {
+              "type": "profile",
+              "role": "headOfDepartment",
+              "roleTitle": "Руководитель департамента 1",
+              "name": "Владислав Пономарев",
+              "assistants": [
+                {
+                  "type": "profile",
+                  "role": "assistant",
+                  "roleTitle": "Подчиненный Ассистент руководителя департамента 1",
+                  "name": "Владислав Пономарев"
+                }
+              ],
+              "submissive": [
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1",
+                  "submissive": [
+                    {
+                      "type": "profile",
+                      "role": "headOfDivision",
+                      "roleTitle": "Руководитель отделения 1",
+                      "name": "Владислав Пономарев",
+                      "partners": [
+                        {
+                          "type": "profile",
+                          "role": "assistant",
+                          "roleTitle": "Ассистент руководителя отделения 1",
+                          "name": "Владислав Пономарев"
+                        }
+                      ],
+                      "submissive": [
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-1",
+                          "name": "Владислав Пономарев"
+                        },
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-2",
+                          "name": "Владислав Пономарев"
+                        },
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-3",
+                          "name": "Владислав Пономарев"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                }
+              ]
+            },
+            {
+              "type": "profile",
+              "role": "headOfDepartment",
+              "roleTitle": "Руководитель департамента 1",
+              "name": "Владислав Пономарев",
+              "assistants": [
+                {
+                  "type": "profile",
+                  "role": "assistant",
+                  "roleTitle": "Подчиненный Ассистент руководителя департамента 1",
+                  "name": "Владислав Пономарев"
+                },
+                {
+                  "type": "profile",
+                  "role": "assistant",
+                  "roleTitle": "Подчиненный Ассистент руководителя департамента 1",
+                  "name": "Владислав Пономарев"
+                }
+              ],
+              "submissive": [
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1",
+                  "submissive": [
+                    {
+                      "type": "profile",
+                      "role": "headOfDivision",
+                      "roleTitle": "Руководитель отделения 1",
+                      "name": "Владислав Пономарев",
+                      "partners": [
+                        {
+                          "type": "profile",
+                          "role": "assistant",
+                          "roleTitle": "Ассистент руководителя отделения 1",
+                          "name": "Владислав Пономарев"
+                        }
+                      ],
+                      "submissive": [
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-1",
+                          "name": "Владислав Пономарев"
+                        },
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-2",
+                          "name": "Владислав Пономарев"
+                        },
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-3",
+                          "name": "Владислав Пономарев"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                }
+              ]
+            },
+            {
+              "type": "profile",
+              "role": "headOfDepartment",
+              "roleTitle": "Руководитель департамента 1",
+              "name": "Владислав Пономарев",
+              "assistants": [
+                {
+                  "type": "profile",
+                  "role": "assistant",
+                  "roleTitle": "Подчиненный Ассистент руководителя департамента 1",
+                  "name": "Владислав Пономарев"
+                },
+                {
+                  "type": "profile",
+                  "role": "assistant",
+                  "roleTitle": "Подчиненный Ассистент руководителя департамента 1",
+                  "name": "Владислав Пономарев"
+                }
+              ],
+              "submissive": [
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1",
+                  "submissive": [
+                    {
+                      "type": "profile",
+                      "role": "headOfDivision",
+                      "roleTitle": "Руководитель отделения 1",
+                      "name": "Владислав Пономарев",
+                      "partners": [
+                        {
+                          "type": "profile",
+                          "role": "assistant",
+                          "roleTitle": "Ассистент руководителя отделения 1",
+                          "name": "Владислав Пономарев"
+                        }
+                      ],
+                      "submissive": [
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-1",
+                          "name": "Владислав Пономарев"
+                        },
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-2",
+                          "name": "Владислав Пономарев"
+                        },
+                        {
+                          "type": "profile",
+                          "role": "position",
+                          "roleTitle": "Должность 1-1-3",
+                          "name": "Владислав Пономарев"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-2"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-3"
+                },
+                {
+                  "type": "division",
+                  "name": "Отдел 1-1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "department",
+          "name": "Департамент 2"
+        },
+        {
+          "type": "department",
+          "name": "Департамент 3"
+        },
+        {
+          "type": "department",
+          "name": "Департамент 2"
+        },
+        {
+          "type": "department",
+          "name": "Департамент 3"
+        },
+        {
+          "type": "department",
+          "name": "Департамент 2"
+        },
+        {
+          "type": "department",
+          "name": "Департамент 3"
+        }
+      ]
+    }
+  ]
+}
