@@ -5,7 +5,7 @@ class Structure {
     constructor({wrapper = 'body', structureDataUrl = 'structure.json'} = {}) {
         this._parameters = {structureDataUrl};
         let _wrapperNode = this._wrapperNode = wrapper instanceof HTMLElement ? wrapper : document.querySelector(wrapper);
-        if (!_wrapperNode || !_wrapperNode.innerHTML) throw new Error(`Wrapper ${wrapper} not accessible`);
+        if (!_wrapperNode) throw new Error(`Wrapper ${wrapper} not accessible`);
         return this._updateStructureData()
             .then(this._prepareWrapper.bind(this))
             .then(function () {
@@ -42,6 +42,18 @@ class Structure {
         let targetNode = targetLevelNode.querySelector('.active[data-structure-item]');
         if (!targetNode) targetNode = targetLevelNode.querySelector('[data-structure-item]');
         if (!targetNode) return Structure._removeActiveItemPath(itemId);
+        if (targetNode.classList.contains('assistant')) {
+            let iterateNode = targetNode;
+            let parentNode = false;
+            while (iterateNode = iterateNode.previousElementSibling) {
+                if (!iterateNode.classList.contains('assistant')) {
+                    parentNode = iterateNode;
+                    break;
+                }
+            }
+            if (!parentNode) return Structure._removeActiveItemPath(itemId);
+            targetNode = parentNode;
+        }
         // let levelNode = itemNode.parentNode;
         let position = {
             offsetTop: targetNode.parentNode.parentNode.offsetTop,
@@ -169,6 +181,7 @@ class Structure {
                 itemData.parentItem = parentItem;
                 itemData.id = this._structureItems.length;
                 itemData.level = parentItem.level;
+                itemData.partner = true;
                 this._structureItems[itemData.id] = itemData;
                 this._parseItemData(itemData);
             }
@@ -178,6 +191,7 @@ class Structure {
                 itemData.parentItem = parentItem;
                 itemData.id = this._structureItems.length;
                 itemData.level = parentItem.level;
+                itemData.assistant = true;
                 this._structureItems[itemData.id] = itemData;
                 this._parseItemData(itemData);
             }
@@ -213,11 +227,11 @@ class Structure {
         let destroyLevelId = childLevel + depth;
         for (let i = childLevel; i <= childLevel + depth; i++) {
             destroyLevelId = i + 1;
-            this._setActiveItem(item.id);
             let level = (!this._level || !this._level[i]) ? this._renderLevel(i) : this._level[i];
             // level.node.innerHTML = '';
             this._cleanLevel(level.id);
             if (!item.submissive || item.submissive.length === 0) break;
+            this._setActiveItem(item.id);
             level.items = item.submissive;
             if (level.items.length === 1) level.node.classList.add('center-items');
             this._renderItems(level.items, i);
@@ -379,6 +393,17 @@ class Structure {
         let itemNode = document.querySelector(`[data-structure-item="${id}"]`);
         if (!itemNode) return;
         itemNode.classList.add('active');
+        if (itemNode.classList.contains('assistant')) {
+            let iterateNode = itemNode;
+            let parentNode = false;
+            while (iterateNode = iterateNode.previousElementSibling) {
+                if (!iterateNode.classList.contains('assistant')) {
+                    parentNode = iterateNode;
+                    break;
+                }
+            }
+            if (parentNode) parentNode.classList.add('active-child');
+        }
     }
 
     _unsetActiveItems(level) {
@@ -389,6 +414,7 @@ class Structure {
 
     _unsetActiveItem(element) {
         element.classList.remove('active');
+        element.classList.remove('active-child');
     }
 
     _destroyStructure(level = 0) {
@@ -397,7 +423,8 @@ class Structure {
             Structure._removeActiveItemPath(i);
             if (!this._level[i]) continue;
             let levelData = this._level[i];
-            levelData.node.parentNode.removeChild(levelData.node);
+            let levelWrapper = levelData.node.parentNode;
+            levelWrapper.parentNode.removeChild(levelWrapper);
             delete this._level[i];
         }
     }
@@ -535,8 +562,11 @@ class Structure {
                 if (item.submissive && item.submissive[0]) source += `<div class="department-structure">${genDepartamentStructure(item.submissive[0])}</div>`;
                 break;
             case 'division':
-                source += genStructureManagement(item) + `<hr><div class="sub-title">Сотрудники отдела</div>`;
-                if (item.submissive && item.submissive[0]) source += `<div class="division-structure">${genDivisionStructure(item.submissive[0])}</div>`;
+                source += genStructureManagement(item, 'headOfDivision') + `<hr><div class="sub-title">Сотрудники отдела</div>`;
+                if (item.submissive && item.submissive[0]) {
+                    let structure = item.submissive[0].role === 'headOfDivision' ? item.submissive[0] : item;
+                    source += `<div class="division-structure">${genDivisionStructure(structure)}</div>`;
+                }
                 break;
             default:
                 source += `Unsupported type`;
@@ -550,7 +580,7 @@ class Structure {
             if (!item) return source;
             source += `<div class="modal-header">`;
             if (item.image) source += `<div class="image"><img src="${item.image}"></div>`;
-            else source += `<div class="image"><img src="http://ponomarevlad.ru/assets/img/pic.jpeg"></div>`;
+            else source += `<div class="image"><img src="assets/logo.svg"></div>`;
             source += `<div class="right-section">`;
             if (item.name) source += `<h2 class="title">${item.name}</h2>`;
             if (item.birthday) source += `<div class="birthday">Дата рождения: ${item.birthday}</div>`;
@@ -558,10 +588,17 @@ class Structure {
             return source;
         }
 
-        function genStructureManagement(item = {}) {
+        function genStructureManagement(item = {}, role = false) {
             let source = '';
-            if (!item.submissive || item.submissive.length === 0) return source;
-            for (let i in item.submissive) source += genManager(item.submissive[i]);
+            let parentRole = true;
+            if (item.submissive || item.submissive.length > 0) {
+                if (role) {
+                    for (let i in item.submissive) if (item.submissive[i].role === role) parentRole = false;
+                } else parentRole = false;
+                if (parentRole) {
+                    source += genManager(item.parentItem);
+                } else for (let i in item.submissive) source += genManager(item.submissive[i]);
+            }
             return source;
         }
 
@@ -569,7 +606,7 @@ class Structure {
             source = '';
             source += `<div class="manager-item">`;
             if (manager.image) source += `<div class="image"><img src="${manager.image}"></div>`;
-            else source += `<div class="image"><img src="http://ponomarevlad.ru/assets/img/pic.jpeg"></div>`;
+            else source += `<div class="image"><img src="assets/logo.svg"></div>`;
             source += `<div class="info-section">`;
             if (manager.roleTitle) source += `<div class="title">${manager.roleTitle}</div>`;
             if (manager.name) source += `<div class="sub-title">${manager.name}</div>`;

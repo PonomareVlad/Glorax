@@ -7,13 +7,15 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
     <link rel="stylesheet" href="assets/base.css">
-    <script src="assets/structure.min.js"></script>
+    <script src="assets/structure.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            window.structure = new Structure();
+            window.structure = new Structure({wrapper: 'structure'});
         });
     </script>
 </head>
-<body>
+<body class="structure-page">
+<structure></structure>
+<a onclick="history.go(-1);" class="back-button">Назад</a>
 </body>
 </html>
