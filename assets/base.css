@@ -324,6 +324,7 @@ html, body {
 
 .structure-wrapper section > .item.active-child:before {
     border-left: 3px solid black;
+    width: 1px;
 }
 
 .structure-wrapper .level-wrapper {

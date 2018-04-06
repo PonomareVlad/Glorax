@@ -558,14 +558,17 @@ class Structure {
                 source += genProfileContacts(item);
                 break;
             case 'department':
-                source += genStructureManagement(item) + `<hr><div class="sub-title">Подразделения</div>`;
-                if (item.submissive && item.submissive[0]) source += `<div class="department-structure">${genDepartamentStructure(item.submissive[0])}</div>`;
+                source += genStructureManagement(item, 'headOfDepartment');
+                if (item.submissive && item.submissive[0]) {
+                    let structure = item.submissive[0].role === 'headOfDepartment' ? item.submissive[0] : item;
+                    source += `<hr><div class="sub-title">Подразделения</div><div class="department-structure">${genDepartmentStructure(structure, 'division')}</div>`;
+                }
                 break;
             case 'division':
-                source += genStructureManagement(item, 'headOfDivision') + `<hr><div class="sub-title">Сотрудники отдела</div>`;
+                source += genStructureManagement(item, 'headOfDivision');
                 if (item.submissive && item.submissive[0]) {
                     let structure = item.submissive[0].role === 'headOfDivision' ? item.submissive[0] : item;
-                    source += `<div class="division-structure">${genDivisionStructure(structure)}</div>`;
+                    source += `<hr><div class="sub-title">Сотрудники отдела</div><div class="division-structure">${genDivisionStructure(structure, 'profile')}</div>`;
                 }
                 break;
             default:
@@ -625,11 +628,12 @@ class Structure {
             return source;
         }
 
-        function genDepartamentStructure(item = {}) {
+        function genDepartmentStructure(item = {}, childType = false) {
             let source = '';
             for (let i in item.submissive) {
                 let structureItem = item.submissive[i];
                 if (!structureItem) continue;
+                if (childType) if (structureItem.type !== childType) continue;
                 source += `<div class="structure-item"><h3>${structureItem.name}</h3>`;
                 if (structureItem.submissive && structureItem.submissive[0]) {
                     let structureManager = structureItem.submissive[0];
@@ -641,13 +645,14 @@ class Structure {
             return source;
         }
 
-        function genDivisionStructure(item = {}) {
+        function genDivisionStructure(item = {}, childType = false) {
             let source = '';
             if (item.submissive && item.submissive.length > 0) {
                 source += '<div class="structure-header"><div>ФИО</div><div>Рабочий телефон</div><div>Телефон</div><div>Email</div></div>';
                 for (let i in item.submissive) {
                     let positionItem = item.submissive[i];
                     if (!positionItem) continue;
+                    if (childType) if (positionItem.type !== childType) continue;
                     source += `<div class="division-position">`;
                     source += `<div>${positionItem.name ? positionItem.name : ''}<br><span>${positionItem.roleTitle}</span></div>`;
                     source += `<div>${positionItem.phoneWork ? positionItem.phoneWork : ''}</div>`;

@@ -600,16 +600,113 @@
           "submissive": [
             {
               "type": "profile",
-              "role": "headOfDepartment",
-              "roleTitle": "\u0414\u0438\u0440\u0435\u043a\u0442\u043e\u0440 \u0434\u0435\u043f\u0430\u0440\u0442\u0430\u043c\u0435\u043d\u0442\u0430 \u0441\u0442\u0440\u043e\u0438\u0442\u0435\u043b\u044c\u0441\u0442\u0432\u0430",
-              "name": "\u041d\u0430\u0437\u0430\u0440\u043e\u0432 \u041c\u0430\u043a\u0441\u0438\u043c",
-              "birthday": "16-10-1976",
-              "phoneWork": "4001",
-              "phone": "+7 (985) 803 16 65",
-              "email": "nazarov@glorax.com",
-              "image": "/media/avatar/2018/03/26/avatar_g1RqdVU",
-              "assistants": [],
-              "submissive": []
+              "role": "position",
+              "roleTitle": "\u041a\u0443\u0440\u044c\u0435\u0440",
+              "name": "\u0410\u0431\u0440\u0430\u043c\u043e\u0432 \u0421\u0435\u0440\u0433\u0435\u0439",
+              "birthday": "09-03-1958",
+              "phoneWork": "",
+              "phone": "+7 (911) 999 73 85",
+              "email": "",
+              "image": "/media/avatar/2018/03/26/avatar_Qc2EcyL"
+            },
+            {
+              "type": "profile",
+              "role": "position",
+              "roleTitle": "\u041a\u0443\u0440\u044c\u0435\u0440",
+              "name": "\u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432 \u041c\u0438\u0445\u0430\u0438\u043b",
+              "birthday": "13-06-1957",
+              "phoneWork": "",
+              "phone": "+7 (925) 098 83 11",
+              "email": "",
+              "image": "/media/avatar/2018/03/26/avatar_UrTfANX"
+            },
+            {
+              "type": "profile",
+              "role": "position",
+              "roleTitle": "\u0412\u043e\u0434\u0438\u0442\u0435\u043b\u044c",
+              "name": "\u041b\u0438\u0441\u0435\u043d\u043a\u043e\u0432 \u0418\u0433\u043e\u0440\u044c",
+              "birthday": "07-12-1977",
+              "phoneWork": "",
+              "phone": "+7 (931) 978 92 14",
+              "email": "",
+              "image": "/media/avatar/2018/03/26/avatar_xc7BxbS"
+            },
+            {
+              "type": "profile",
+              "role": "position",
+              "roleTitle": "\u041e\u0444\u0438\u0441-\u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+              "name": "\u041b\u043e\u043c\u043e\u043d\u043e\u0441\u043e\u0432\u0430 \u0415\u043a\u0430\u0442\u0435\u0440\u0438\u043d\u0430",
+              "birthday": "02-08-1983",
+              "phoneWork": "1215",
+              "phone": "+7 (964) 574 02 40",
+              "email": "e.lomonosova@glorax.com",
+              "image": "/media/avatar/2018/03/26/avatar_czp6aFg"
+            },
+            {
+              "type": "profile",
+              "role": "position",
+              "roleTitle": "\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440 \u043e\u0444\u0438\u0441\u0430",
+              "name": "\u041e\u043f\u0435\u043a\u0438\u043d\u0430 \u041e\u043b\u044c\u0433\u0430",
+              "birthday": "18-08-1992",
+              "phoneWork": "1220",
+              "phone": "",
+              "email": "o.opekina@glorax.com",
+              "image": "/media/avatar/2018/03/26/avatar_VGNOdWr"
+            },
+            {
+              "type": "profile",
+              "role": "position",
+              "roleTitle": "\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440 \u043e\u0444\u0438\u0441\u0430",
+              "name": "\u041f\u043e\u043b\u0443\u043d\u0438\u043d\u0430 \u0421\u043e\u0444\u0438\u044f",
+              "birthday": "30-05-1994",
+              "phoneWork": "1210",
+              "phone": "+7 (985) 665 00 18",
+              "email": "s.polunina@glorax.com",
+              "image": "/media/avatar/2018/03/26/avatar_skrVVq9"
+            },
+            {
+              "type": "profile",
+              "role": "position",
+              "roleTitle": "\u0412\u043e\u0434\u0438\u0442\u0435\u043b\u044c",
+              "name": "\u0421\u043d\u044f\u0442\u0443\u043b\u0438\u043d \u0421\u0435\u0440\u0433\u0435\u0439",
+              "birthday": "",
+              "phoneWork": "",
+              "phone": "+7 (931) 989 62 75",
+              "email": "",
+              "image": "/media/avatar/2018/03/26/avatar_g7b6VfZ"
+            },
+            {
+              "type": "profile",
+              "role": "position",
+              "roleTitle": "\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440 \u043e\u0444\u0438\u0441\u0430",
+              "name": "\u0421\u0442\u043e\u043b\u044f\u0440\u043e\u0432\u0430 \u0414\u0438\u0430\u043d\u0430",
+              "birthday": "24-04-1993",
+              "phoneWork": "1210",
+              "phone": "+7 (964) 580 98 85",
+              "email": "stolyarova@glorax.com",
+              "image": "/media/avatar/2018/03/26/avatar_d0Gp31h"
+            },
+            {
+              "type": "profile",
+              "role": "position",
+              "roleTitle": "\u041e\u0444\u0438\u0441-\u043c\u0435\u043d\u0435\u0434\u0436\u0435\u0440",
+              "name": "\u0428\u0430\u0440\u043d\u0435\u043d\u043a\u043e\u0432\u0430 \u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430",
+              "birthday": "05-03-1992",
+              "phoneWork": "1225",
+              "phone": "+7 (931) 989 62 36",
+              "email": "k.sharnenkova@glorax.com",
+              "image": "/media/avatar/2018/03/26/avatar_CprYWay"
+            },
+            {
+              "type": "profile",
+              "role": "position",
+              "roleTitle": "\u0410\u0434\u043c\u0438\u043d\u0438\u0441\u0442\u0440\u0430\u0442\u043e\u0440 \u043e\u0444\u0438\u0441\u0430",
+              "name": "\u0428\u0430\u0440\u043e\u0432\u0430 \u042e\u043b\u0438\u044f",
+              "birthday": "24-08-1996",
+              "phoneWork": "1220",
+              "phone": "+7 (911) 174 77 57",
+              "email": "y.sharova@glorax.com",
+              "image": "/media/avatar/2018/03/26/avatar_xf8UqD9"
             }
           ]
         },
