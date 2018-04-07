@@ -305,9 +305,11 @@ class Structure {
     }
 
     _renderItems(items = [], level = false) {
+        let positionsLevel = true;
         for (let i in items) {
             let item = items[i];
             if (!level) level = item.level;
+            if (!item.role || item.role !== 'position') positionsLevel = false;
             let itemNode = this._renderItem(item, level);
             if (item.partners && item.partners.length > 0)
                 for (let j in item.partners) {
@@ -331,9 +333,11 @@ class Structure {
                 while (prevItem = prevItem.previousSibling) {
                     itemPathWidth = itemNode.offsetLeft - prevItem.offsetLeft;
                 }
+                if (itemPathWidth <= 0) itemPathWidth = 1;
                 styleElem.innerHTML = `.structure-wrapper section.extended-level > .item[data-structure-item="${item.id}"]:before {width: ${itemPathWidth}px;left: calc(-${itemPathWidth}px + 50%);`;
             }
         }
+        if (positionsLevel) this._level[level].node.classList.add('active-positions');
     }
 
     _renderItem(item = {}, level = false) {
@@ -344,7 +348,7 @@ class Structure {
         itemNode.classList.add('item');
         if (item.type) itemNode.classList.add(item.type);
         if (item.role) itemNode.classList.add(item.role);
-        if (item.partners && item.partners.length > 0) itemNode.classList.add('partner');
+        if ((item.partners && item.partners.length > 0) || (item.assistants && item.assistants.length > 0)) itemNode.classList.add('partner');
         if (item.subLevel) itemNode.classList.add('sub-level');
 
         if (parseInt(item.order) === 0) itemNode.classList.add('first-after-head');

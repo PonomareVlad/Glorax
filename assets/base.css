@@ -155,14 +155,6 @@ html, body {
     border-left: 3px solid black;
 }
 
-.structure-wrapper section > .item:first-of-type:nth-last-of-type(2):before {
-    left: 50%;
-    width: 0;
-    border-right: none;
-    border-left: 3px solid black;
-    background-color: black;
-}
-
 .structure-wrapper section > .item.active:after {
     content: '';
     position: absolute;
@@ -230,18 +222,36 @@ html, body {
 }
 
 .structure-wrapper section > .item.position:before {
-    left: calc(-50% - 40px);
+    left: calc(-50% - 42px);
     top: -21px;
-    width: calc(100% + 39px);
+    width: calc(100% + 42px);
     height: 18px;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.structure-wrapper section > .item.position:first-of-type:before {
+    border-left: 1px solid black;
+    left: 50%;
+    border-right: none;
+}
+
+.structure-wrapper section.active-positions > .item.position:before {
     border-right: 3px solid black;
     border-top: 3px solid black;
 }
 
-.structure-wrapper section > .item.position:first-of-type:before {
+.structure-wrapper section.active-positions > .item.position:first-of-type:before {
     border-left: 3px solid black;
-    left: 50%;
     border-right: none;
+}
+
+.structure-wrapper section > .item:first-of-type:nth-last-of-type(2):before {
+    left: 50%;
+    width: 0;
+    border-right: none;
+    border-left: 3px solid black;
+    background-color: black;
 }
 
 .structure-wrapper section > .item.head {
