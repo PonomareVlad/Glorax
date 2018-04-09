@@ -56,7 +56,7 @@ class Structure {
         }
         // let levelNode = itemNode.parentNode;
         let position = {
-            offsetTop: targetNode.parentNode.parentNode.offsetTop,
+            offsetTop: targetNode.parentNode.parentNode.offsetTop - 1,
             offsetLeft: itemNode.offsetLeft - itemNode.parentNode.scrollLeft + 150
         };
         pathNode.style.opacity = 1;
@@ -76,8 +76,17 @@ class Structure {
                 }
             } else position.targetLeft = document.body.clientWidth / 2;
         }
-        position.pathLeft = position.offsetLeft > position.targetLeft ? position.targetLeft : (position.offsetLeft);
+        position.pathLeft = position.offsetLeft > position.targetLeft ? position.targetLeft : position.offsetLeft;
         position.pathWidth = (position.offsetLeft > position.targetLeft ? (position.offsetLeft - position.targetLeft) : (position.targetLeft - position.offsetLeft));
+        if (position.pathWidth > 0) {
+            if (position.offsetLeft > position.targetLeft) {
+                position.pathLeft += 0;
+                position.pathWidth += 2;
+            } else {
+                position.pathLeft -= 1;
+                position.pathWidth += 4;
+            }
+        }
         pathNode.style.top = position.offsetTop + 'px';
         pathNode.style.left = position.pathLeft + 'px';
         pathNode.style.width = position.pathWidth + 'px';
@@ -334,7 +343,7 @@ class Structure {
                     itemPathWidth = itemNode.offsetLeft - prevItem.offsetLeft;
                 }
                 if (itemPathWidth <= 0) itemPathWidth = 1;
-                styleElem.innerHTML = `.structure-wrapper section.extended-level > .item[data-structure-item="${item.id}"]:before {width: ${itemPathWidth}px;left: calc(-${itemPathWidth}px + 50%);`;
+                styleElem.innerHTML = `.structure-wrapper section.extended-level > .item[data-structure-item="${item.id}"]:not(.active-child):not(.active):before {width: ${itemPathWidth}px;left: calc(-${itemPathWidth}px + 50%);`;
             }
         }
         if (positionsLevel) this._level[level].node.classList.add('active-positions');

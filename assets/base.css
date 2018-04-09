@@ -242,8 +242,12 @@ html, body {
 }
 
 .structure-wrapper section.active-positions > .item.position:first-of-type:before {
-    border-left: 3px solid black;
+    /*border-left: 3px solid black;*/
     border-right: none;
+    border-left: none;
+    left: calc(50% - 1.5px);
+    background-color: black;
+    width: 3px;
 }
 
 .structure-wrapper section > .item:first-of-type:nth-last-of-type(2):before {
