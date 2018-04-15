@@ -4,12 +4,43 @@
     box-sizing: border-box;
 }*/
 
+@font-face {
+    font-family: HelveticaNeue;
+    src: url('fonts/HelveticaNeueCyr-Medium.otf') format("opentype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: HelveticaNeue;
+    src: url('fonts/HelveticaNeueCyr-Bold.otf') format("opentype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: HelveticaNeue;
+    src: url('fonts/HelveticaNeueCyr-Light.otf') format("opentype");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: HelveticaNeue;
+    src: url('fonts/HelveticaNeueCyr-UltraLight_0.otf') format("opentype");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: HelveticaNeue;
+    src: url('fonts/HelveticaNeueCyr-Thin.otf') format("opentype");
+    font-weight: 100;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     /*font-family: -apple-system, sans-serif;*/
     /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-    font-family: "Open Sans", sans-serif;
+    /*font-family: "Open Sans", sans-serif;*/
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, sans-serif;
     font-size: 16px;
     background-color: #f2f2f2;
     -webkit-font-smoothing: antialiased;
@@ -153,6 +184,8 @@ html, body {
 
 .structure-wrapper section > .item.active:not(.head):first-of-type:before {
     border-left: 3px solid black;
+    /*width: calc(50% + 40px);*/
+    /*background-color: transparent;*/
 }
 
 .structure-wrapper section > .item.active:after {
@@ -256,6 +289,11 @@ html, body {
     border-right: none;
     border-left: 3px solid black;
     background-color: black;
+}
+
+.structure-wrapper section > .item.active:not(.head):not(.partner):first-of-type:not(:nth-last-of-type(2)):before {
+    width: calc(50% + 40px);
+    background-color: transparent;
 }
 
 .structure-wrapper section > .item.head {
@@ -467,6 +505,9 @@ html, body {
     padding: 32px 46px;
     width: calc(100% - 92px);
     background-color: #F5F5F5;
+    background-position: bottom 25px right 25px;
+    background-repeat: no-repeat;
+    background-size: 200px;
 }
 
 .structure-modal-content > .modal-header .image {

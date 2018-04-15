@@ -10,6 +10,19 @@
       "division": {
         "showDepth": 1
       }
+    },
+    "parseRules": {
+      "profile": {
+        "phoneWork": {
+          "title": "Рабочий телефон"
+        },
+        "phone": {
+          "title": "Телефон"
+        },
+        "email": {
+          "title": "Email"
+        }
+      }
     }
   },
   "structure": [
@@ -35,6 +48,7 @@
       "phone": "",
       "type": "profile",
       "image": "/media/avatar/2018/04/07/avatar_xVDnNQ1",
+      "cover": "assets/coverTest.jpg",
       "submissive": [
         {
           "submissive": [

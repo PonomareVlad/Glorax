@@ -568,17 +568,17 @@ class Structure {
                 if (item.partners && item.partners.length > 0) {
                     source += `<div class="info-line"><strong>Асистент: </strong>${item.partners[0].name}</div>`;
                 }
-                source += genProfileContacts(item);
+                source += genProfileContacts.call(this, item);
                 break;
             case 'department':
-                source += genStructureManagement(item, 'headOfDepartment');
+                source += genStructureManagement.call(this, item, 'headOfDepartment');
                 if (item.submissive && item.submissive[0]) {
                     let structure = item.submissive[0].role === 'headOfDepartment' ? item.submissive[0] : item;
                     source += `<hr><div class="sub-title">Подразделения</div><div class="department-structure">${genDepartmentStructure(structure, 'division')}</div>`;
                 }
                 break;
             case 'division':
-                source += genStructureManagement(item, 'headOfDivision');
+                source += genStructureManagement.call(this, item, 'headOfDivision');
                 if (item.submissive && item.submissive[0]) {
                     let structure = item.submissive[0].role === 'headOfDivision' ? item.submissive[0] : item;
                     source += `<hr><div class="sub-title">Сотрудники отдела</div><div class="division-structure">${genDivisionStructure(structure, 'profile')}</div>`;
@@ -594,12 +594,19 @@ class Structure {
         function genHeader(item = {}) {
             let source = '';
             if (!item) return source;
-            source += `<div class="modal-header">`;
+            source += `<div class="modal-header" ${item.cover ? `style="background-image: url('${item.cover}');"` : ``}>`;
             if (item.image) source += `<div class="image"><img src="${item.image}"></div>`;
             else source += `<div class="image"><img src="assets/logo.svg"></div>`;
             source += `<div class="right-section">`;
             if (item.name) source += `<h2 class="title">${item.name}</h2>`;
-            if (item.birthday) source += `<div class="birthday">Дата рождения: ${item.birthday}</div>`;
+            if (item.birthday) {
+                let dateComponents = item.birthday.split('-').reverse();
+                let bithDate = new Date(dateComponents[0], dateComponents[1], dateComponents[2]).toLocaleString('ru', {
+                    month: 'long',
+                    day: 'numeric'
+                });
+                source += `<div class="birthday">Дата рождения: ${bithDate}</div>`;
+            }
             source += `</div></div>`;
             return source;
         }
@@ -612,8 +619,8 @@ class Structure {
                     for (let i in item.submissive) if (item.submissive[i].role === role) parentRole = false;
                 } else parentRole = false;
                 if (parentRole) {
-                    source += genManager(item.parentItem);
-                } else for (let i in item.submissive) source += genManager(item.submissive[i]);
+                    source += genManager.call(this, item.parentItem);
+                } else for (let i in item.submissive) source += genManager.call(this, item.submissive[i]);
             }
             return source;
         }
@@ -626,18 +633,28 @@ class Structure {
             source += `<div class="info-section">`;
             if (manager.roleTitle) source += `<div class="title">${manager.roleTitle}</div>`;
             if (manager.name) source += `<div class="sub-title">${manager.name}</div>`;
-            source += genProfileContacts(manager) + `</div></div>`;
+            source += genProfileContacts.call(this, manager) + `</div></div>`;
             if (manager.partners && manager.partners.length > 0) {
-                for (let i in manager.partners) source += genManager(manager.partners[i]);
+                for (let i in manager.partners) source += genManager.call(this, manager.partners[i]);
             }
             return source;
         }
 
         function genProfileContacts(item = {}) {
             let source = '';
-            if (item.phoneWork) source += `<div class="info-line"><strong>Рабочий телефон:</strong>${item.phoneWork}</div>`;
-            if (item.phone) source += `<div class="info-line"><strong>Телефон:</strong>${item.phone}</div>`;
-            if (item.email) source += `<div class="info-line"><strong>Email:</strong>${item.email}</div>`;
+            let fieldParameters = this._getParameter('parseRules', item.type);
+            if (fieldParameters) {
+                let fieldIds = Object.keys(fieldParameters);
+                for (let i in fieldIds) {
+                    let fieldId = fieldIds[i];
+                    if (!item[fieldId]) continue;
+                    source += `<div class="info-line"><strong>${fieldParameters[fieldId].title}:</strong>${item[fieldId]}</div>`;
+                }
+            } else {
+                if (item.phoneWork) source += `<div class="info-line"><strong>Рабочий телефон:</strong>${item.phoneWork}</div>`;
+                if (item.phone) source += `<div class="info-line"><strong>Телефон:</strong>${item.phone}</div>`;
+                if (item.email) source += `<div class="info-line"><strong>Email:</strong>${item.email}</div>`;
+            }
             return source;
         }
 
