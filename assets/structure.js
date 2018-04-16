@@ -184,36 +184,55 @@ class Structure {
     }
 
     _parseItemData(parentItem) {
-        if (parentItem.partners)
-            for (let i in parentItem.partners) {
-                let itemData = parentItem.partners[i];
-                itemData.parentItem = parentItem;
-                itemData.id = this._structureItems.length;
-                itemData.level = parentItem.level;
-                itemData.partner = true;
-                this._structureItems[itemData.id] = itemData;
-                this._parseItemData(itemData);
-            }
-        if (parentItem.assistants)
-            for (let i in parentItem.assistants) {
-                let itemData = parentItem.assistants[i];
-                itemData.parentItem = parentItem;
-                itemData.id = this._structureItems.length;
-                itemData.level = parentItem.level;
-                itemData.assistant = true;
-                this._structureItems[itemData.id] = itemData;
-                this._parseItemData(itemData);
-            }
+        // TODO: split function and add Structure roots
+
+        // let parentStructure = genParentStructure(parentItem.structureData);
+
+        if (parentItem.partners) for (let i in parentItem.partners) {
+            let itemData = parentItem.partners[i];
+            itemData.parentItem = parentItem;
+            itemData.partner = true;
+            itemData.assistant = true;
+            parseItem.call(this, itemData);
+        }
+        if (parentItem.leftPartners) for (let i in parentItem.leftPartners) {
+            let itemData = parentItem.leftPartners[i];
+            itemData.parentItem = parentItem;
+            itemData.leftPartner = true;
+            itemData.assistant = true;
+            parseItem.call(this, itemData);
+        }
+        if (parentItem.assistants) for (let i in parentItem.assistants) {
+            let itemData = parentItem.assistants[i];
+            itemData.parentItem = parentItem;
+            itemData.assistant = true;
+            parseItem.call(this, itemData);
+        }
+
         let childLevel = parentItem.level + 1;
-        if (parentItem.submissive)
-            for (let i in parentItem.submissive) {
-                let itemData = parentItem.submissive[i];
-                itemData.parentItem = parentItem;
-                itemData.id = this._structureItems.length;
-                itemData.level = childLevel;
-                this._structureItems[itemData.id] = itemData;
-                this._parseItemData(itemData);
-            }
+
+        if (parentItem.submissive) for (let i in parentItem.submissive) {
+            let itemData = parentItem.submissive[i];
+            itemData.parentItem = parentItem;
+            parseItem.call(this, itemData, childLevel);
+        }
+
+        function parseItem(itemData = {}, level = false) {
+            itemData.structureData = genParentStructure(itemData);
+            itemData.id = this._structureItems.length;
+            itemData.level = typeof level === "number" ? level : itemData.parentItem.level;
+            // itemData.level = level ? level : itemData.parentItem.level;
+            this._structureItems[itemData.id] = itemData;
+            this._parseItemData(itemData);
+        }
+
+        function genParentStructure(itemData = {}) {
+            let structureData = {};
+            if (itemData.parentItem.structureData) Object.assign(structureData, structureData, itemData.parentItem.structureData);
+            if (itemData.parentItem.type === 'department') structureData.department = itemData.parentItem;
+            if (itemData.parentItem.type === 'division') structureData.division = itemData.parentItem;
+            return structureData;
+        }
     }
 
     _prepareWrapper() {
@@ -242,11 +261,28 @@ class Structure {
             if (!item.submissive || item.submissive.length === 0) break;
             this._setActiveItem(item.id);
             level.items = item.submissive;
-            if (level.items.length === 1) level.node.classList.add('center-items');
             this._renderItems(level.items, i);
-            let rightSpace = level.node.appendChild(document.createElement('div'));
-            rightSpace.classList.add('right-space');
+            if (level.items.length === 1) {
+                if (level.items[0].role === 'head') {
+                    if (level.items[0].partners || level.items[0].leftPartners || level.items[0].assistants) {
+                        level.node.classList.add('disable-right-space');
+                    } else {
+                        level.node.classList.add('center-items');
+                    }
+                } else {
+                    level.node.classList.add('center-items');
+                    // let rightSpace = level.node.appendChild(document.createElement('div'));
+                    // rightSpace.classList.add('right-space');
+                }
+            } else {
+                let rightSpace = level.node.appendChild(document.createElement('div'));
+                rightSpace.classList.add('right-space');
+            }
+
+            /*let rightSpace = level.node.appendChild(document.createElement('div'));
+            rightSpace.classList.add('right-space');*/
             this._createActiveItemPath(item.id);
+            if (item.type === 'department' && level.items.length > 0 && level.items[0].type === 'division') break;
             item = level.items[0];
         }
         this._destroyStructure(destroyLevelId);
@@ -326,6 +362,13 @@ class Structure {
                     partner.order = j;
                     this._renderItem(partner, level);
                 }
+            if (item.leftPartners && item.leftPartners.length > 0)
+                for (let j in item.leftPartners) {
+                    let partner = item.leftPartners[j];
+                    partner.left = true;
+                    // partner.order = j;
+                    this._renderItem(partner, level);
+                }
             if (item.assistants && item.assistants.length > 0) {
                 this._level[level].node.classList.add('extended-level');
                 for (let j in item.assistants) {
@@ -361,6 +404,7 @@ class Structure {
         if (item.subLevel) itemNode.classList.add('sub-level');
 
         if (parseInt(item.order) === 0) itemNode.classList.add('first-after-head');
+        if (item.left) itemNode.classList.add('left');
         // if (item.title) itemNode.innerHTML += `<div class="title">${item.title}</div>`;
         // if (item.description) itemNode.innerHTML += `<div class="description">${item.description}</div>`;
         if (item.roleTitle) itemNode.innerHTML += `<div class="title">${item.roleTitle}</div><div class="description">${item.name}</div>`;
@@ -396,7 +440,10 @@ class Structure {
 
         });
         itemNode.appendChild(itemModal);
-        this._level[level].node.appendChild(itemNode);
+        if (item.left) {
+            let parentItemNode = document.querySelector(`[data-structure-item="${item.parentItem.id}"]`);
+            parentItemNode.parentNode.insertBefore(itemNode, parentItemNode);
+        } else this._level[level].node.appendChild(itemNode);
         return itemNode;
     }
 
@@ -560,10 +607,12 @@ class Structure {
         switch (item.type) {
             case 'profile':
                 if (item.roleTitle) source += `<h2 class="title">${item.roleTitle}</h2>`;
-                if (item.role === 'headOfDepartment' || item.role === 'headOfDivision') {
+                if (item.structureData.division) source += `<a class="structure-link" data-structure-modal-link="${item.structureData.division.id}">${item.structureData.division.name}</a><br><br>`;
+                if (item.structureData.department) source += `<a class="structure-link" data-structure-modal-link="${item.structureData.department.id}">${item.structureData.department.name}</a>`;
+                /*if (item.role === 'headOfDepartment' || item.role === 'headOfDivision') {
                     let structure = item.parentItem;
                     source += `<a class="structure-link" data-structure-modal-link="${structure.id}">${structure.name}</a>`;
-                }
+                }*/
                 source += `<hr><div class="sub-title">Основная информация</div>`;
                 if (item.partners && item.partners.length > 0) {
                     source += `<div class="info-line"><strong>Асистент: </strong>${item.partners[0].name}</div>`;

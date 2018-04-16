@@ -144,15 +144,15 @@ html, body {
     margin-left: auto;
 }
 
-.structure-wrapper section > .item:nth-last-of-type(2) {
-    margin-right: auto;
-}
-
 .structure-wrapper section.center-items > .item:first-of-type {
     margin-left: calc(50% - 150px);
 }
 
-.structure-wrapper section > .item:nth-last-of-type(2) {
+.structure-wrapper section:not(.center-items):not(.disable-right-space) > .item:nth-last-of-type(2) {
+    margin-right: auto;
+}
+
+.structure-wrapper section.disable-right-space > .item:nth-last-of-type(1) {
     margin-right: auto;
 }
 
@@ -283,7 +283,7 @@ html, body {
     width: 3px;
 }
 
-.structure-wrapper section > .item:first-of-type:nth-last-of-type(2):before {
+.structure-wrapper section:not(.center-items) > .item:first-of-type:nth-last-of-type(2):before {
     left: 50%;
     width: 0;
     border-right: none;
@@ -291,7 +291,20 @@ html, body {
     background-color: black;
 }
 
-.structure-wrapper section > .item.active:not(.head):not(.partner):first-of-type:not(:nth-last-of-type(2)):before {
+.structure-wrapper section.center-items > .item:first-of-type:nth-last-of-type(1):before {
+    left: 50%;
+    width: 0;
+    border-right: none;
+    border-left: 3px solid black;
+    background-color: black;
+}
+
+.structure-wrapper section:not(.center-items) > .item.active:not(.head):not(.partner):first-of-type:not(:nth-last-of-type(2)):before {
+    width: calc(50% + 40px);
+    background-color: transparent;
+}
+
+.structure-wrapper section.center-items > .item.active:not(.head):not(.partner):first-of-type:not(:nth-last-of-type(1)):before {
     width: calc(50% + 40px);
     background-color: transparent;
 }
@@ -372,6 +385,22 @@ html, body {
     border-top: 3px solid black;
     border-right: 3px solid black;
     height: 17px;
+}
+
+.structure-wrapper section > .item.assistant.left {
+    margin-right: 120px;
+}
+
+.structure-wrapper section > .item.assistant.left:before {
+    top: 50%;
+    right: -40px;
+    left: auto;
+    width: 41px;
+    height: 1px;
+    border: none;
+    background: black;
+    /*left: calc(-50% + 108px);
+    width: calc(50% + 40px)*/;
 }
 
 .structure-wrapper section > .item.active-child:before {
@@ -731,6 +760,18 @@ html, body {
     height: 26px;
     line-height: 26px;
     padding: 0 8px;
+}
+
+.structure-modal-content > .modal-body > .division-structure > div > div:nth-child(2) {
+    width: 80%;
+}
+
+.structure-modal-content > .modal-body > .division-structure > div > div:nth-child(3) {
+    width: 80%;
+}
+
+.structure-modal-content > .modal-body > .division-structure > div > div:nth-child(4) {
+    width: 140%;
 }
 
 .structure-modal-content > .modal-body > .division-structure > div > div > span {

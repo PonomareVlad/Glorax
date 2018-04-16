@@ -21,6 +21,9 @@
         },
         "email": {
           "title": "Email"
+        },
+        "address": {
+          "title": "Адрес"
         }
       }
     }
@@ -28,6 +31,19 @@
   "structure": [
     {
       "partners": [
+        {
+          "roleTitle": "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442 \u0423\u043f\u0440\u0430\u0432\u043b\u044f\u044e\u0449\u0435\u0433\u043e \u043f\u0430\u0440\u0442\u043d\u0435\u0440\u0430",
+          "role": "assistant",
+          "name": "\u041c\u0435\u0434\u0432\u0435\u0434\u0435\u0432\u0430 \u041e\u043b\u0435\u0441\u044f",
+          "phoneWork": "1204",
+          "birthday": "29-09-1985",
+          "phone": "+7 (985) 203 03 19",
+          "type": "profile",
+          "image": "/media/avatar/2018/04/07/avatar_EuGNYWC",
+          "email": "o.medvedeva@glorax.com"
+        }
+      ],
+      "leftPartners": [
         {
           "roleTitle": "\u0410\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442 \u0423\u043f\u0440\u0430\u0432\u043b\u044f\u044e\u0449\u0435\u0433\u043e \u043f\u0430\u0440\u0442\u043d\u0435\u0440\u0430",
           "role": "assistant",
@@ -49,6 +65,7 @@
       "type": "profile",
       "image": "/media/avatar/2018/04/07/avatar_xVDnNQ1",
       "cover": "assets/coverTest.jpg",
+      "address": "Город, улица",
       "submissive": [
         {
           "submissive": [
