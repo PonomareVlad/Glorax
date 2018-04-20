@@ -277,13 +277,13 @@ html, body {
 .structure-wrapper section.active-positions > .item.position:first-of-type:before {
     /*border-left: 3px solid black;*/
     border-right: none;
-    border-left: none;
+    border-left: 3px solid black;
     left: calc(50% - 1.5px);
-    background-color: black;
-    width: 3px;
+    /*background-color: black;*/
+    /*width: 3px;*/
 }
 
-.structure-wrapper section:not(.center-items) > .item:first-of-type:nth-last-of-type(2):before {
+.structure-wrapper section:not(.center-items) > .item:first-of-type:nth-last-of-type(2):not(.head):before {
     left: 50%;
     width: 0;
     border-right: none;
@@ -307,27 +307,6 @@ html, body {
 .structure-wrapper section.center-items > .item.active:not(.head):not(.partner):first-of-type:not(:nth-last-of-type(1)):before {
     width: calc(50% + 40px);
     background-color: transparent;
-}
-
-.structure-wrapper section > .item.head {
-    background-color: #003558;
-    border-color: #003558;
-    color: #FFF;
-}
-
-.structure-wrapper section > .item.head:before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: -104px;
-    width: 100px;
-    height: calc(100% + 2px);
-    background-color: #003558;
-    /*background-color: transparent;*/
-    background-image: url(logo.svg);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 .structure-wrapper section > .item.department {
@@ -406,6 +385,27 @@ html, body {
 .structure-wrapper section > .item.active-child:before {
     border-left: 3px solid black;
     width: 1px;
+}
+
+.structure-wrapper section > .item.head {
+    background-color: #003558;
+    border-color: #003558;
+    color: #FFF;
+}
+
+.structure-wrapper section > .item.head:before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -104px;
+    width: 100px;
+    height: calc(100% + 2px);
+    background-color: #003558;
+    /*background-color: transparent;*/
+    background-image: url(logo.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .structure-wrapper .level-wrapper {

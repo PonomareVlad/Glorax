@@ -93,7 +93,20 @@
                           "phone": "",
                           "type": "profile",
                           "image": "/media/avatar/2018/04/07/avatar_rr1aFDe",
-                          "email": "v.gladchenko@ingenernoe.com"
+                          "email": "v.gladchenko@ingenernoe.com",
+                          "submissive": [
+                            {
+                              "roleTitle": "\u0412\u0435\u0434\u0443\u0449\u0438\u0439 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440",
+                              "role": "position",
+                              "name": "\u0413\u043b\u0430\u0434\u0447\u0435\u043d\u043a\u043e \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432",
+                              "phoneWork": "7008",
+                              "birthday": "13-07-1992",
+                              "phone": "",
+                              "type": "profile",
+                              "image": "/media/avatar/2018/04/07/avatar_rr1aFDe",
+                              "email": "v.gladchenko@ingenernoe.com"
+                            }
+                          ]
                         },
                         {
                           "roleTitle": "\u0412\u0435\u0434\u0443\u0449\u0438\u0439 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440",

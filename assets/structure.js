@@ -56,7 +56,7 @@ class Structure {
         }
         // let levelNode = itemNode.parentNode;
         let position = {
-            offsetTop: targetNode.parentNode.parentNode.offsetTop - 1,
+            offsetTop: targetNode.parentNode.parentNode.offsetTop,
             offsetLeft: itemNode.offsetLeft - itemNode.parentNode.scrollLeft + 150
         };
         pathNode.style.opacity = 1;
