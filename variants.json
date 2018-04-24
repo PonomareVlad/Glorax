@@ -1,0 +1,47 @@
+{
+  "variants": {
+    "profiles": [
+      {
+        "id": 1,
+        "name": "Иванов И.А.",
+        "role": "position",
+        "phone": "+7 (999) 999 99 99",
+        "email": "ivanov@ivan.ii",
+        "image": "assets/logo.svg"
+      },
+      {
+        "id": 2,
+        "name": "Петров И.А.",
+        "role": "position",
+        "phone": "+7 (999) 999 99 99",
+        "email": "ivanov@ivan.ii",
+        "image": "assets/logo.svg"
+      },
+      {
+        "id": 3,
+        "name": "Чижиков И.А.",
+        "role": "position",
+        "phone": "+7 (999) 999 99 99",
+        "email": "ivanov@ivan.ii",
+        "image": "assets/logo.svg"
+      }
+    ],
+    "roles": [
+      {
+        "id": 1,
+        "role": "projectManager",
+        "title": "Руководитель проекта"
+      },
+      {
+        "id": 2,
+        "role": "manager",
+        "title": "Руководитель"
+      },
+      {
+        "id": 2,
+        "role": "staff",
+        "title": "Обслуживающий персонал"
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+.structure-wrapper section > .item:before {
+    border-right-color: rgba(0, 0, 0, 0.5);
+    border-right-style: dashed;
+    border-top-color: rgba(0, 0, 0, 0.5);
+    border-top-style: dashed;
+}
+
+.structure-wrapper section > .item:first-of-type:before {
+    border-left-color: rgba(0, 0, 0, 0.5);
+    border-left-style: dashed;
+}
+
+.structure-wrapper section > .item.position:before {
+    border-right-color: rgba(0, 0, 0, 0.5);
+    border-right-style: dashed;
+    border-top-color: rgba(0, 0, 0, 0.5);
+    border-top-style: dashed;
+}
+
+.structure-wrapper section > .item.assistant:before {
+    height: 0;
+    background: transparent;
+    border-top: 1px dashed rgba(0, 0, 0, 0.5);
+}
+
+.structure-wrapper section.extended-level > .item.assistant.sub-level:before {
+    border-right-color: rgba(0, 0, 0, 0.5);
+    border-right-style: dashed;
+    border-top-color: rgba(0, 0, 0, 0.5);
+    border-top-style: dashed;
+}
+
+.structure-wrapper section > .item.assistant.left:before {
+    height: 0;
+    background: transparent;
+    border-top: 1px dashed rgba(0, 0, 0, 0.5);
+}
+
+#menu-wrapper {
+    position: relative;
+    z-index: 10000;
+}
+
+#menu-wrapper .structure-menu {
+    display: block;
+    position: absolute;
+    background: white;
+    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}

@@ -2,8 +2,9 @@
 
 class Structure {
 
-    constructor({wrapper = 'body', structureDataUrl = 'structure.json'} = {}) {
-        this._parameters = {structureDataUrl};
+    constructor({wrapper = 'body', structureDataUrl = 'structure.json', itemBlockWidth = 300} = {}) {
+        this._parameters = {structureDataUrl, itemBlockWidth};
+        Structure._itemBlockWidth = itemBlockWidth;
         let _wrapperNode = this._wrapperNode = wrapper instanceof HTMLElement ? wrapper : document.querySelector(wrapper);
         if (!_wrapperNode) throw new Error(`Wrapper ${wrapper} not accessible`);
         return this._updateStructureData()
@@ -55,18 +56,19 @@ class Structure {
             targetNode = parentNode;
         }
         // let levelNode = itemNode.parentNode;
+        let halfItemBlockWidth = Structure._itemBlockWidth / 2;
         let position = {
             offsetTop: targetNode.parentNode.parentNode.offsetTop,
-            offsetLeft: itemNode.offsetLeft - itemNode.parentNode.scrollLeft + 150
+            offsetLeft: itemNode.offsetLeft - itemNode.parentNode.scrollLeft + halfItemBlockWidth
         };
         pathNode.style.opacity = 1;
         if (targetNode.classList.contains('partner') || targetNode.classList.contains('active')) {
-            position.targetLeft = targetNode.offsetLeft - targetNode.parentNode.scrollLeft + 150;
+            position.targetLeft = targetNode.offsetLeft - targetNode.parentNode.scrollLeft + halfItemBlockWidth;
         } else {
             let levelItems = targetLevelNode.querySelectorAll('[data-structure-item]');
             if (levelItems.length > 1) {
-                let leftLevelItemOffset = levelItems[0].offsetLeft - levelItems[0].parentNode.scrollLeft + 150;
-                let rightLevelItemOffset = levelItems[levelItems.length - 1].offsetLeft - levelItems[levelItems.length - 1].parentNode.scrollLeft + 150;
+                let leftLevelItemOffset = levelItems[0].offsetLeft - levelItems[0].parentNode.scrollLeft + halfItemBlockWidth;
+                let rightLevelItemOffset = levelItems[levelItems.length - 1].offsetLeft - levelItems[levelItems.length - 1].parentNode.scrollLeft + halfItemBlockWidth;
                 if (position.offsetLeft >= leftLevelItemOffset && position.offsetLeft <= rightLevelItemOffset) {
                     pathNode.style.opacity = 0;
                 } else if (position.offsetLeft < leftLevelItemOffset) {
@@ -105,12 +107,14 @@ class Structure {
         let targetNode = targetLevelNode.querySelector('[data-structure-item]');
         if (!targetNode) return;
 
+        let halfItemBlockWidth = Structure._itemBlockWidth / 2;
+
         let position = {
             offsetTop: targetNode.offsetTop - 72,
-            offsetLeft: itemNode.offsetLeft - itemNode.parentNode.scrollLeft + 150
+            offsetLeft: itemNode.offsetLeft - itemNode.parentNode.scrollLeft + halfItemBlockWidth
         };
         if (targetNode.classList.contains('partner') || targetNode.classList.contains('active')) {
-            position.targetLeft = targetNode.offsetLeft - targetNode.parentNode.scrollLeft + 150;
+            position.targetLeft = targetNode.offsetLeft - targetNode.parentNode.scrollLeft + halfItemBlockWidth;
             //else position.targetLeft = document.body.clientWidth / 2;
             position.pathLeft = position.offsetLeft > position.targetLeft ? position.targetLeft : (position.offsetLeft);
             position.pathWidth = (position.offsetLeft > position.targetLeft ? (position.offsetLeft - position.targetLeft) : (position.targetLeft - position.offsetLeft));
