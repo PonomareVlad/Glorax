@@ -165,6 +165,99 @@
                         }
                       ],
                       "email": "m.samusenko@ingenernoe.com"
+                    },
+                    {
+                      "partners": [],
+                      "roleTitle": "\u0413\u043b\u0430\u0432\u043d\u044b\u0439 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440",
+                      "role": "headOfDivision",
+                      "name": "\u0421\u0430\u043c\u0443\u0441\u0435\u043d\u043a\u043e \u041c\u0430\u0440\u0438\u043d\u0430",
+                      "phoneWork": "7026",
+                      "birthday": "",
+                      "phone": "+7 (929) 902 22 47",
+                      "type": "profile",
+                      "image": "/media/avatar/2018/04/07/avatar_4S5gyiJ",
+                      "submissive": [
+                        {
+                          "roleTitle": "\u0412\u0435\u0434\u0443\u0449\u0438\u0439 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440",
+                          "role": "position",
+                          "name": "\u0413\u043b\u0430\u0434\u0447\u0435\u043d\u043a\u043e \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432",
+                          "phoneWork": "7008",
+                          "birthday": "13-07-1992",
+                          "phone": "",
+                          "type": "profile",
+                          "image": "/media/avatar/2018/04/07/avatar_rr1aFDe",
+                          "email": "v.gladchenko@ingenernoe.com",
+                          "submissive": [
+                            {
+                              "roleTitle": "\u0412\u0435\u0434\u0443\u0449\u0438\u0439 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440",
+                              "role": "position",
+                              "name": "\u0413\u043b\u0430\u0434\u0447\u0435\u043d\u043a\u043e \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432",
+                              "phoneWork": "7008",
+                              "birthday": "13-07-1992",
+                              "phone": "",
+                              "type": "profile",
+                              "image": "/media/avatar/2018/04/07/avatar_rr1aFDe",
+                              "email": "v.gladchenko@ingenernoe.com"
+                            }
+                          ]
+                        },
+                        {
+                          "roleTitle": "\u0412\u0435\u0434\u0443\u0449\u0438\u0439 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440",
+                          "role": "position",
+                          "name": "\u0413\u0443\u0441\u0442\u044b\u0440\u044c \u0410\u043b\u0435\u043a\u0441\u0435\u0439",
+                          "phoneWork": "7018",
+                          "birthday": "26-01-1990",
+                          "phone": "",
+                          "type": "profile",
+                          "image": "/media/avatar/2018/04/07/avatar_xU8fnC9",
+                          "email": "a.gustyr@ingenernoe.com"
+                        },
+                        {
+                          "roleTitle": "\u0413\u043b\u0430\u0432\u043d\u044b\u0439 \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440",
+                          "role": "position",
+                          "name": "\u0417\u0430\u0439\u0446\u0435\u0432 \u0410\u043b\u0435\u043a\u0441\u0435\u0439",
+                          "phoneWork": "7009",
+                          "birthday": "",
+                          "phone": "+7 (925) 176-5371",
+                          "type": "profile",
+                          "image": "/media/avatar/2018/04/07/avatar_25xOSl8",
+                          "email": "a.zajcev@ingenernoe.com"
+                        },
+                        {
+                          "roleTitle": "\u0410\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440",
+                          "role": "position",
+                          "name": "\u041a\u0440\u044b\u043b\u043e\u0432 \u0410\u043d\u0442\u043e\u043d",
+                          "phoneWork": "7013",
+                          "birthday": "13-06-1988",
+                          "phone": "",
+                          "type": "profile",
+                          "image": "/media/avatar/2018/04/07/avatar_ymytQ6p",
+                          "email": "a.krylov@ingenernoe.com"
+                        },
+                        {
+                          "roleTitle": "\u0412\u0435\u0434\u0443\u0449\u0438\u0439 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440 \u0433\u0435\u043d\u0435\u0440\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u043b\u0430\u043d\u0430",
+                          "role": "position",
+                          "name": "\u041a\u0443\u0437\u043d\u0435\u0446\u043e\u0432\u0430 \u0418\u0440\u0438\u043d\u0430",
+                          "phoneWork": "7022",
+                          "birthday": "16-07-1989",
+                          "phone": "",
+                          "type": "profile",
+                          "image": "/media/avatar/2018/04/07/avatar_dltYDTV",
+                          "email": "i.kuznecova@ingenernoe.com"
+                        },
+                        {
+                          "roleTitle": "\u0412\u0435\u0434\u0443\u0449\u0438\u0439 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u043e\u0440",
+                          "role": "position",
+                          "name": "\u0426\u0443\u0445\u043b\u043e \u0422\u0430\u0442\u044c\u044f\u043d\u0430",
+                          "phoneWork": "7024",
+                          "birthday": "12-06-1986",
+                          "phone": "",
+                          "type": "profile",
+                          "image": "/media/avatar/2018/04/07/avatar_i8XDJQM",
+                          "email": "t.cuhlo@ingenernoe.com"
+                        }
+                      ],
+                      "email": "m.samusenko@ingenernoe.com"
                     }
                   ],
                   "type": "division",
@@ -352,7 +445,19 @@
               "type": "profile",
               "image": "/media/avatar/2018/04/07/avatar_njtHSEV",
               "email": "a.zhuchkov@ingenernoe.com",
-              "assistants": []
+              "leftPartners": [
+                {
+                  "roleTitle": "Аналитик",
+                  "role": "assistant",
+                  "name": "\u041c\u0435\u0434\u0432\u0435\u0434\u0435\u0432\u0430 \u041e\u043b\u0435\u0441\u044f",
+                  "phoneWork": "1204",
+                  "birthday": "29-09-1985",
+                  "phone": "+7 (985) 203 03 19",
+                  "type": "profile",
+                  "image": "/media/avatar/2018/04/07/avatar_EuGNYWC",
+                  "email": "o.medvedeva@glorax.com"
+                }
+              ]
             }
           ],
           "type": "department",

@@ -270,7 +270,10 @@ class Structure {
                         level.node.classList.add('center-items');
                     }
                 } else {
-                    level.node.classList.add('center-items');
+                    if (level.items[0].partners || level.items[0].leftPartners || level.items[0].assistants) {
+                        let rightSpace = level.node.appendChild(document.createElement('div'));
+                        rightSpace.classList.add('right-space');
+                    } else level.node.classList.add('center-items');
                     // let rightSpace = level.node.appendChild(document.createElement('div'));
                     // rightSpace.classList.add('right-space');
                 }
@@ -367,6 +370,7 @@ class Structure {
                     let partner = item.leftPartners[j];
                     partner.left = true;
                     // partner.order = j;
+                    if (item.role === 'head') partner.headMargin = true;
                     this._renderItem(partner, level);
                 }
             if (item.assistants && item.assistants.length > 0) {
@@ -405,6 +409,8 @@ class Structure {
 
         if (parseInt(item.order) === 0) itemNode.classList.add('first-after-head');
         if (item.left) itemNode.classList.add('left');
+
+        if (item.headMargin) itemNode.classList.add('head-margin');
         // if (item.title) itemNode.innerHTML += `<div class="title">${item.title}</div>`;
         // if (item.description) itemNode.innerHTML += `<div class="description">${item.description}</div>`;
         if (item.roleTitle) itemNode.innerHTML += `<div class="title">${item.roleTitle}</div><div class="description">${item.name}</div>`;

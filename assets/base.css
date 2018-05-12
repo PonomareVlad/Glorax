@@ -292,7 +292,8 @@ html, body {
 }
 
 .structure-wrapper section.center-items > .item:first-of-type:nth-last-of-type(1):before {
-    left: 50%;
+    /*left: 50%;*/
+    left: calc(50% - 1.5px);
     width: 0;
     border-right: none;
     border-left: 3px solid black;
@@ -367,7 +368,7 @@ html, body {
 }
 
 .structure-wrapper section > .item.assistant.left {
-    margin-right: 120px;
+    margin-right: 0;
 }
 
 .structure-wrapper section > .item.assistant.left:before {
@@ -380,6 +381,10 @@ html, body {
     background: black;
     /*left: calc(-50% + 108px);
     width: calc(50% + 40px)*/;
+}
+
+.structure-wrapper section > .item.item.assistant.left.head-margin {
+    margin-right: 120px;
 }
 
 .structure-wrapper section > .item.active-child:before {
@@ -476,7 +481,7 @@ html, body {
     position: relative;
     align-self: start;
     display: block;
-    min-width: 80px;
+    min-width: 0;
     height: 1px;
 }
 
